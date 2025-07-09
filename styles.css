@@ -1,0 +1,508 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #3dbb6a 80%, #2e7d4f 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.crt-message-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Height: from below the top buttons to just above the input bar */
+    bottom: 90px;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 120px;
+    background: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+.crt-message {
+    width: 98vw;
+    max-width: 1100px;
+    max-height: 100%;
+    color: #eaffd0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    text-shadow: 0 0 8px #baffb0, 0 0 2px #fff;
+    user-select: text;
+    word-break: break-word;
+    white-space: pre-line;
+    overflow-y: auto;
+    padding: 48px 2vw 48px 2vw;
+    margin: 0 auto;
+    pointer-events: auto;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+/* Ensure all text elements inherit the same font size */
+.crt-message * {
+    font-size: inherit;
+}
+
+.crt-message strong, .crt-message b {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.09em;
+    font-size: 1.3rem !important;
+}
+.crt-message ul, .crt-message ol {
+    text-align: left;
+    margin: 1em auto 1em 2.5em;
+    color: #eaffd0;
+    text-shadow: 0 0 8px #baffb0, 0 0 2px #fff;
+    padding-left: 1.2em;
+    font-size: 1.3rem !important;
+    line-height: 1.5;
+}
+.crt-message li {
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+    font-size: 1.3rem !important;
+}
+.crt-message em, .crt-message i {
+    color: #baffb0;
+    font-size: 1.3rem !important;
+    font-style: italic;
+}
+
+/* Custom Scrollbar for message area */
+.crt-message::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+}
+.crt-message::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #baffb0 60%, #3dbb6a 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 8px #baffb0, 0 0 2px #3dbb6a;
+    border: 2px solid #2e7d4f;
+}
+.crt-message::-webkit-scrollbar-track {
+    background: #2e7d4f;
+    border-radius: 8px;
+}
+.crt-message {
+    scrollbar-width: thin;
+    scrollbar-color: #baffb0 #2e7d4f;
+}
+
+.fullscreen-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    max-width: 900px;
+    color: #eaffd0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-shadow: 0 0 8px #baffb0, 0 0 2px #fff;
+    user-select: text;
+    word-break: break-word;
+    white-space: pre-line;
+    z-index: 1;
+}
+
+.input-row-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95vw;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    background: rgba(226,255,208,0.12);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0002 inset;
+    padding: 10px 16px;
+    z-index: 2;
+}
+
+.crt-input {
+    flex: 1;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    background: #eaffd0;
+    color: #2e7d4f;
+    border: 2px solid #bdbd9c;
+    border-radius: 6px;
+    padding: 10px 14px;
+    outline: none;
+    margin-right: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.crt-input:focus {
+    border-color: #3dbb6a;
+    background: #fff;
+}
+.mic-btn {
+    font-size: 1.5rem;
+    color: #2e7d4f;
+    background: #eaffd0;
+    border-radius: 50%;
+    border: 2px solid #bdbd9c;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+.mic-btn:active, .mic-btn:focus {
+    background: #baffb0;
+    color: #1a4d2e;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #eaffd0;
+    font-size: 1.7rem;
+    cursor: pointer;
+    z-index: 3;
+    padding: 6px;
+    transition: color 0.2s;
+}
+.icon-btn:active, .icon-btn:focus {
+    color: #fff;
+}
+.settings-btn {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+}
+.transcript-btn {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+}
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: linear-gradient(135deg, #2e7d4f 0%, #1a4d2e 100%);
+    border: 2px solid #baffb0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(186, 255, 176, 0.4);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #baffb0;
+}
+.modal-header h2 {
+    color: #eaffd0;
+    font-size: 1.5rem;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    text-shadow: 0 0 8px #baffb0, 0 0 2px #fff;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: #baffb0;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+.close-btn:hover {
+    color: #fff;
+}
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    color: #eaffd0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+}
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #baffb0;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+#transcript-content {
+    background: rgba(186, 255, 176, 0.1);
+    border: 1px solid #baffb0;
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #eaffd0;
+}
+
+/* Transcript entry styling */
+.transcript-entry {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(186, 255, 176, 0.3);
+}
+
+.transcript-entry.computer {
+    background: rgba(186, 255, 176, 0.1);
+    border-left: 4px solid #baffb0;
+}
+
+.transcript-entry.user {
+    background: rgba(234, 255, 208, 0.05);
+    border-left: 4px solid #eaffd0;
+}
+
+.transcript-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.transcript-header .sender {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.transcript-entry.computer .sender {
+    color: #baffb0;
+}
+
+.transcript-entry.user .sender {
+    color: #eaffd0;
+}
+
+.transcript-header .timestamp {
+    color: rgba(234, 255, 208, 0.6);
+    font-size: 11px;
+}
+
+.transcript-message {
+    color: #eaffd0;
+    line-height: 1.5;
+}
+
+.transcript-message strong {
+    color: #fff;
+}
+
+.transcript-message em {
+    color: #baffb0;
+}
+
+/* Form elements styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #eaffd0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    text-shadow: 0 0 4px #baffb0;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(186, 255, 176, 0.1);
+    border: 2px solid #baffb0;
+    border-radius: 6px;
+    color: #eaffd0;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #fff;
+    background: rgba(186, 255, 176, 0.2);
+}
+
+.form-group input::placeholder {
+    color: rgba(234, 255, 208, 0.6);
+}
+
+.form-group select option {
+    background: #2e7d4f;
+    color: #eaffd0;
+}
+
+.model-description {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(186, 255, 176, 0.05);
+    border: 1px solid rgba(186, 255, 176, 0.2);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: rgba(234, 255, 208, 0.8);
+    font-style: italic;
+}
+
+/* Button styling */
+.btn-primary,
+.btn-secondary {
+    padding: 10px 20px;
+    border: 2px solid #baffb0;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background: rgba(186, 255, 176, 0.2);
+    color: #eaffd0;
+}
+
+.btn-primary:hover {
+    background: rgba(186, 255, 176, 0.3);
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #baffb0;
+}
+
+.btn-secondary:hover {
+    background: rgba(186, 255, 176, 0.1);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ff41;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ff88;
+}
+
+@media (max-width: 600px) {
+    .crt-message-area {
+        width: 100vw;
+        max-width: 100vw;
+        height: 32vh;
+        min-height: 100px;
+        padding-top: 48px;
+    }
+    .crt-message {
+        font-size: 1rem;
+        padding: 0 1vw 0 1vw;
+    }
+    .fullscreen-message {
+        font-size: 1.1rem;
+        max-width: 98vw;
+    }
+    .input-row-bottom {
+        width: 98vw;
+        padding: 8px 4px;
+    }
+    .crt-input {
+        font-size: 1rem;
+        padding: 7px 8px;
+    }
+    .mic-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    .settings-btn, .transcript-btn {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+}
+
+
+
+ 
